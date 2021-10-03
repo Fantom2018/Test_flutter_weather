@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'widgets/weather_tile.dart';
 
 void main () => runApp(
   MaterialApp(
@@ -35,7 +36,7 @@ class _MyApp extends State<MyApp>{
                 Padding(
                   padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
                   child: Text(
-                    "Temperature",
+                    "35\u2103",
                     style: TextStyle(
                       color: Colors.purple,
                       fontSize: 40.0,
@@ -44,7 +45,7 @@ class _MyApp extends State<MyApp>{
                   ),
                 ),
                 Text(
-                  "High of temp, Low of temp",
+                  "High of 38\u2103, Low of 30\u2103",
                   style: TextStyle(
                     color: Color(0xff9e9e9e),
                     fontSize: 14.0,
@@ -59,29 +60,10 @@ class _MyApp extends State<MyApp>{
               padding: EdgeInsets.all(20.0),
                 child: ListView(
                   children: [
-                    ListTile(
-                      leading: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.thermostat_outlined, color: Colors.blueAccent,)
-                        ],
-                      ),
-                      title: Text(
-                        "Tmperature",
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.w600
-                        ),
-                      ),
-                      subtitle: Text(
-                        "SubTitle",
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xff9e9e9e)
-                        ),
-                      ),
-                    )
+                    WeatherTile(icon: Icons.thermostat_outlined, title: "Temperature", subtitle: "35\u2103"),
+                    WeatherTile(icon: Icons.filter_drama_outlined, title: "Weather", subtitle: "Cloudy"),
+                    WeatherTile(icon: Icons.wb_sunny, title: "Humidity", subtitle: "67%"),
+                    WeatherTile(icon: Icons.waves_outlined, title: "Wind speed", subtitle: "2 m/sec"),
                   ],
                 )
               ),
